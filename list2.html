@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+<ul class="list" id="list_item">
+    <li>苹果</li>
+    <li>香蕉</li>
+    <li>栗子</li>
+</ul>
+<div class="past">
+    <button type="button" name="第一">第一</button>
+</div>
+<p class="pl" title="替换元素">12345,替换成</p>
+<span class="pd">11111</span>
+    <script>
+
+            var $li_1 = $("<li title='花生'>花生</li>");
+            var $li_2 = $('<li title="柚子">柚子</li>');
+            var $ul = $('.list');
+            $ul.append($li_1); //将li_1,li_2插入ul中最后面
+            $ul.appendTo($('.past'));//将ul插入到div中
+            $ul.prepend($li_1);     //将li_1插入都div ul的第一个li中。
+            $ul.prependTo($('body'));//将ul插入到body元素第一个位置中。
+            $ul.after($li_2);   //将li_2插入到ul后面 （兄弟元素）
+            $ul.insertAfter($('.past')); //将ul的内容插入到div past 的后面 兄弟元素
+            $ul.before($li_1);  //li_1插入到ul前面
+            $ul.insertBefore($('.past')); //将ul插入到div past前面
+            
+            $('.past button').click(function () {
+                    for (var i=0;i<$ul.length;i++){
+                        $ul.children().eq(i).remove();
+                        $(this).html(123);
+                    }
+            });
+
+            $ul.children().click(function () {
+                $(this).clone().appendTo($ul);
+            })
+
+            $('.pl').click(function () {
+                $(this).attr('pllll','123412');
+                if($(this).attr('title') == '替换元素'){
+                    $(this).replaceWith('<p class="pl" title="替换后的元素">12345,上山打老虎</p>');
+
+                }});
+            $('.pd').click(function () {
+                $('<span class="pd">222222222222</span>').replaceAll('.pd')
+            })
+
+    </script>
+</body>
+</html>

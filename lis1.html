@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.js"></script>
+</head>
+<body>
+    <div class="div1">
+        <ul>
+            <li><a>1</a><i>1</i></li>
+            <li><a>2</a><i>1</i></li>
+            <li lastedc="zheshisan" ><a>3</a><i>1</i></li>
+            <li title="zhebushisan"><a>4</a><i>1</i></li>
+            <li><a>5</a><i>1</i></li>
+            <li><a>6</a><i>1</i></li>
+            <li><a>7</a><i>1</i></li>
+            <li><a>8</a><i>1</i></li>
+            <li><a>9</a><i>1</i></li>
+            <li><a>10</a><i>1</i></li>
+            <li><a>11</a><i>1</i></li>
+            <li><a>12</a><i>1</i></li>
+            <li><a>13</a><i>1</i></li>
+            <li><a>14</a><i>1</i></li>
+            <li><a>15</a><i>1</i></li>
+            <li><a>16</a><i>1</i></li>
+        </ul>
+        <div class="div2">
+            <span>显示全部</span>
+        </div>
+    </div>
+<script>
+    $(function () {
+        var $app = $('ul li:gt(5):not(:last)');
+        $app.hide();
+        var $qb = $('.div2 > span');
+        $qb.click(function () {
+            if($app.is(':visible')){
+                $app.hide();
+                $qb.text('显示全部');
+
+            }
+            else {
+                $app.show();
+                $qb.text('全部品牌');
+
+            }
+
+        })
+    })
+</script>
+
+</body>
+</html>

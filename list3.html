@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        *{margin: 0;padding: 0;}
+        span{margin: 10px 20px;display: inline-block;}
+    </style>
+</head>
+<body>
+<div class="div0">
+    <div class="div1">
+        <p>我是p</p>
+        <p>我是p</p>
+        <p>我是p</p>
+        <ul><li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+        <span>我是span</span>
+        <span>我是span</span>
+        <span>我是span</span>
+        <br/>
+        <br/>
+        <br/>
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+
+    </div>
+</div>
+<script>
+    var pl = $('ul').children(); //子元素
+
+    var pd = $('ul').next(); //向下的第一个同胞元素
+
+    var ps = $('ul').prev(); //向上的第一个同胞元素
+
+    var pp = $('ul').siblings(); //前后的所有同胞元素
+
+    var po = $('ul').parent(); //元素的父元素
+
+    var pi = $('ul').parents(); // 匹配元素的所以父元素，祖先元素
+
+    $('p').css('color','red');
+    $('p').css({'font-size':'16px','border':'1px solid red','display':'block'});
+
+    var set = $('span').offset();
+    console.log('span的左边距离为：'+set.left);
+    console.log('span的上边距离为：'+set.top);
+
+    $(document).scroll(function () {
+        var a = $(window).scrollTop();
+        if (a>10 && a<100){
+            var body = document.body;
+            var bb = document.createElement('p');
+            bb.innerText="12312312";
+            body.appendChild(bb);
+        };
+    })
+
+</script>
+
+</body>
+</html>

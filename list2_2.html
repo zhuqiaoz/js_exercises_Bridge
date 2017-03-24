@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图片</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <style>
+        *{margin: 0;padding: 0;list-style: none;}
+        .wrap{margin: 0 auto;width: 1200px;}
+        .lunbo{width: 650px;overflow: hidden;margin: 0 auto;height: 210px;position: relative;}
+        .lunbo ul{width: 5000px;position: absolute;left: 0;top:0;}
+        .lunbo li{float: left;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="lunbo">
+            <ul class="list">
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+                <li><a href="#"><img src="img/01.jpg"/> </a></li>
+            </ul>
+            <ol></ol>
+        </div>
+    </div>
+
+<script>
+    $(function () {
+        var index =0;
+        var oul =$('ul');
+        var oulwi =$('ul').children().width();
+        var oulth =$('ul').children().length;
+
+        var time_ul= setInterval(function () {index++;left();},1000);
+
+
+        function left() {
+            if(index == oulth){oul.animate({'left':0});index=0}
+            if(index == -1){oul.animate({'left':-(oulth - 1)*oulwi});index = oulth - 1;}
+            oul.stop().animate({ left: -index * 130 }, 500);
+        };
+
+        $('.list').hover(function () {
+            clearInterval(time_ul);
+        },
+                function () {
+            time_ul = setInterval(
+                    function () { index++; left(); }, 2000);
+        });
+    })
+</script>
+</body>
+</html>

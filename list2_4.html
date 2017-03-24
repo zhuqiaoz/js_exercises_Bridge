@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图03</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <style>
+        *{margin: 0;padding: 0;list-style: none;}
+        .lunbo{margin: 100px auto;width: 560px;height: 210px;overflow: hidden;position: relative;}
+        .lunbo ul{position: absolute;width: 6120px;overflow: hidden;left: 0px;opacity: 1;}
+        .lunbo ul li{float: left;width: 560px;}
+        ol{position: absolute;bottom: 10px;width: 100% ;left: 0;text-align: center;font-size: 0;}
+        ol li{width: 10px;height: 10px;border-radius: 50%;margin-left: 8px;background-color: #888;display:inline-block; margin:0px 3px; cursor:pointer;}
+        ol li.active{background: red;}
+        .prep{ text-align: center; width: 24px;height: 36px;text-decoration:none;line-height: 36px; position: absolute;right: 0;top: 50%;background-color: rgba(0, 0, 0, 0.3);color:#ffffff; rgba(0, 0, 0, 0.3);display: block;margin-top: -18px;}
+        .next{ text-align: center; width: 24px;height: 36px;text-decoration:none; line-height: 36px; position: absolute;left: 0;top: 50%;background-color: rgba(0, 0, 0, 0.3);color:#ffffff; rgba(0, 0, 0, 0.3);display: block;margin-top: -18px;}
+    </style>
+</head>
+<body>
+<div class="lunbo">
+    <ul class="ul_item">
+        <li>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+        </li>
+        <li>
+            <a href="javascript:"><img src="img/02.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+        </li>
+        <li>
+            <a href="javascript:"><img src="img/03.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+        </li>
+        <li>
+            <a href="javascript:"><img src="img/04.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+        </li>
+        <li>
+            <a href="javascript:"><img src="img/05.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+        </li>
+    </ul>
+    <ol></ol>
+    <a class="prep" href="javascript:" title="上一张" style="display: none;"> &#62 </a>
+    <a class="next" href="javascript:" title="下一张" style="display: none;"> &#60; </a>
+</div>
+<script>
+    $(function () {
+        var oul = $('.ul_item');
+        var index=0;
+        var oullihtml = oul.children().first().clone();
+        oul.append(oullihtml);
+        var olilength = oul.children().length;
+        var oliwidth = oul.children().first().width();
+        var oulwidth = olilength*oliwidth;
+        for (var i=0;i<olilength-1;i++){
+            $('ol').append($('<li></li>'))
+        }
+        $('ol li').eq(0).addClass('active');
+        oul.css({width:oulwidth});
+
+        $('ol li').hover(function () {
+            var indexs =$(this).index();
+            var lindexs = indexs;
+            oul.stop().animate({left:-oliwidth*lindexs});
+            $(this).addClass('active').siblings().removeClass('active');
+        })
+
+        var time_oul = setInterval(function () {
+            index++;
+            oul_left();
+        },2000);
+
+        $('.next').on('click',function () {
+                index--;
+                oul_left();
+        });
+        $('.prep').on('click',function () {
+            index++;
+            oul_left();
+        });
+
+
+        function oul_left() {
+            if(index == olilength){oul.css({left:0});index=1;}
+            if(index == -1){oul.css({left:-(olilength-1)*oliwidth});index=olilength-2;}
+            oul.stop().animate({left:-index*oliwidth});
+            if(index == olilength-1){
+                $('ol li').eq(0).addClass('active').siblings().removeClass('active')
+            }else {
+                $('ol li').eq(index).addClass('active').siblings().removeClass('active')
+            }
+        }
+
+        oul.hover(function () {
+                    $('.prep,.next').show().delay(2000);
+                    clearInterval(time_oul);
+                }, function () {
+                    $('.prep,.next').hide();
+                    time_oul = setInterval(function () {
+                        index++;
+                        oul_left();
+                    },2000);
+                });
+        $('.prep,.next').hover(function () {
+            $('.prep,.next').show().delay(2000);
+            clearInterval(time_oul);
+        },function () {
+            $('.prep,.next').hide();
+            time_oul = setInterval(function () {
+                index++;
+                oul_left();
+            },2000);
+        })
+    })
+</script>
+</body>
+</html>

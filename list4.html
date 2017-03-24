@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件冒泡</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        span{display: block;height: 25px;margin: 10px;}
+    </style>
+</head>
+<body>
+    <a href="javascript:" class="aaaa">dianji</a>
+    <div class="div">我是div
+        <span class="span">我是span</span>我是div
+    </div>
+<div class="div1"></div>
+    <script>
+        $('.aaaa').on('click',function (event) {
+            alert(event.type);
+            return false;
+            event.preventDefault(); //阻止事件冒泡
+            event.stopPropagation(); //阻止默认事件；
+            event.target;//触发时间的元素；
+            event.pageX; //光标的位置
+            event.pageY; //光标的位置
+            event.which; //鼠标左右中键位，1 左边 2中 3 右边
+            event.metaKey; //捕获ctrl键位
+
+        })
+    </script>
+<script>
+    $(function () {
+        $('span').on('click',function (event) {
+            var aa = $('.div1').html()+'<b>span 让点击</b>';
+            $('.div1').html(aa);
+            //event.stopPropagation(); //停止事件冒泡
+            return false;
+        });
+        $('.div').on('click',function (event) {
+            var aa = $('.div1').html()+'<b>div 让点击</b>';
+            $('.div1').html(aa);
+            return false;
+        });
+        $('body').on('click',function () {
+            var aa = $('.div1').html()+'<b>body 让点击</b>';
+            $('.div1').html(aa);
+            return false;
+        })
+    })
+</script>
+<script>
+    $(function () {
+        var index =0;
+        var oul = $('.ul_item');
+
+        var oulwidth = oul.children().first().width();
+        var firstli = oul.children().first().clone();
+        oul.append(firstli);
+        var oullen = oul.children().length;
+        var time = setInterval(function () {
+            index++;ul_left();
+        },2000);
+
+        function ul_left() {
+            var left_li=0;
+            if(index == oullen){
+                oul.css({left:0});
+                index=1;
+            }
+            if(index == -1){
+                left_li = -(oullen-1)*oulwidth;
+                oul.css({left:left_li});
+                index = oullen-2;
+            }
+            left_li = -index*oulwidth
+            oul.stop().animate({left:left_li});
+
+        };
+    })
+</script>
+</body>
+</html>

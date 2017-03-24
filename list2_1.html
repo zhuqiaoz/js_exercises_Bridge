@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <style>
+        *{margin: 0 ;padding: 0;}
+        .wrap{margin: 0 auto; width: 1200px;}
+        input{display: inline-block;padding: 4px;margin-left: 20px;}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <ol class="ol">
+        <input id="li1" type="button" value="向后新增li">
+        <input id="li2" type="button" value="向前新增li">
+        <input id="li3" type="button" value="删除最后一个">
+        
+    </ol>
+    <ul class="">
+        <li>我是LI0</li>
+        <li>我是LI1</li>
+        <li>我是LI2</li>
+        <li>我是LI3</li>
+        <li>我是LI4</li>
+        <li>我是LI5</li>
+    </ul>
+
+
+</div>
+<script>
+    $(function () {
+//        $('#li1').on('click',function () {
+//            var ul = $('ul');
+//            var ulli = parseInt(ul.children().length);
+//            var ullitext = $('<li>我是LI'+ulli+'</li>');
+//            ul.append(ullitext);
+//
+//        });
+//        $('#li2').on('click',function () {
+//            var ul = $('ul');
+//            var text = $('<li>我是LI0</li>');
+//            ul.prepend(text);
+//            for(var i=1;i<ul.children().length;i++){
+//                ul.children().eq(i).html("我是LI"+i);
+//            }
+//        });
+//        $('#li3').on('click',function () {
+//            var pl = $('ul').children().length;
+//            $('ul').children().eq(pl-1).remove();
+//        });
+
+    $('.wrap').click(function (event) {
+        var target = event.target;
+        var ul = $('ul');
+        var ulli = ul.children().length;
+        console.log(target);
+        if (target.id == 'li1'){
+            var ullitext = $('<li>我是LI'+ulli+'</li>');
+            ul.append(ullitext);
+        }
+        if (target.id == 'li2'){
+            var text = $('<li>我是LI0</li>');
+            ul.prepend(text);
+            for(var i=1;i<ul.children().length;i++){
+                ul.children().eq(i).html("我是LI"+i);
+            }
+        }
+        if(target.id == 'li3' ){
+            ul.children().eq(ulli-1).remove();
+        }
+
+    })
+  });
+</script>
+</body>
+</html>

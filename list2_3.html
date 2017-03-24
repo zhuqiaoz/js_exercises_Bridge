@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图02</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <style>
+        *{margin: 0;padding: 0;list-style: none;}
+        .lunbo{width: 520px;height: 200px;margin: 100px auto;position: relative;overflow: hidden;}
+        .lunbo ul{
+            position: absolute;
+            width: 6120px;
+            overflow: hidden;
+            left: 0px;
+            opacity: 1;
+            transition-duration: 0.4s;
+            backface-visibility: hidden;}
+        .lunbo li{float: left;width: 520px;overflow: hidden;}
+        .lunbo li a{display: inline-block;float: left;}
+    </style>
+</head>
+<body>
+    <div class="lunbo">
+        <ul class="ul_item">
+            <li>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+            </li>
+            <li>
+                <a href="javascript:"><img src="img/02.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+            </li>
+            <li>
+                <a href="javascript:"><img src="img/03.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+            </li>
+            <li>
+                <a href="javascript:"><img src="img/04.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+            </li>
+            <li>
+                <a href="javascript:"><img src="img/05.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+                <a href="javascript:"><img src="img/01.jpg" /></a>
+            </li>
+        </ul>
+        <ol></ol>
+    </div>
+<script>
+    $(function () {
+        var index =0;
+        var oul = $('.ul_item');
+
+        var oulwidth = oul.children().first().width();
+//        var firstli = oul.children().first().clone();
+//        oul.append(firstli);
+        var oullen = oul.children().length;
+        var time = setInterval(function () {
+            index++;ul_left();
+        },2000);
+        
+        function ul_left() {
+            var left_li=0;
+            if(index == oullen){
+                oul.stop().css({'transform':'translate3d(0px,0px,0px)'});
+                //index=1;
+            }
+            if(index == -1){
+                left_li = -(oullen-1)*oulwidth;
+                oul.css({'transform':'translate3d('+left_li+'px,0px,0px)'});
+                index = oullen-2;
+            }else{
+                left_li = -index*oulwidth
+                oul.css({'transform':'translate3d('+left_li+'px,0px,0px)','position': 'absolute','width': '6120px','overflow': 'hidden','left': '0','opacity': '1','transition-duration':'.4s','backface-visibility':'hidden'});
+            }
+
+
+        };
+    })
+</script>
+</body>
+</html>
+
