@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图03_不含有向前向后</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/lunbo.js"></script>
+    <style>
+        *{margin: 0;padding: 0;list-style: none;}
+        .lunbo{margin: 100px auto;width: 560px;height: 210px;overflow: hidden;position: relative;}
+        .lunbo ul{position: absolute;width: 6120px;overflow: hidden;left: 0px;opacity: 1;}
+        .lunbo ul li{float: left;width: 560px;}
+        ol{position: absolute;bottom: 10px;width: 100% ;left: 0;text-align: center;font-size: 0;}
+        ol li{width: 10px;height: 10px;border-radius: 50%;margin-left: 8px;background-color: #888;display:inline-block; margin:0px 3px; cursor:pointer;}
+        ol li.active{background: red;}
+        .prep{ text-align: center; width: 24px;height: 36px;text-decoration:none;line-height: 36px; position: absolute;right: 0;top: 50%;background-color: rgba(0, 0, 0, 0.3);color:#ffffff; rgba(0, 0, 0, 0.3);display: block;margin-top: -18px;}
+        .next{ text-align: center; width: 24px;height: 36px;text-decoration:none; line-height: 36px; position: absolute;left: 0;top: 50%;background-color: rgba(0, 0, 0, 0.3);color:#ffffff; rgba(0, 0, 0, 0.3);display: block;margin-top: -18px;}
+    </style>
+</head>
+<body>
+<div class="lunbo">
+    <ul class="ul_item">
+        <li>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+        </li>
+        <li>
+            <a href="javascript:"><img src="img/02.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+        </li>
+        <li>
+            <a href="javascript:"><img src="img/03.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+        </li>
+        <li>
+            <a href="javascript:"><img src="img/04.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+        </li>
+        <li>
+            <a href="javascript:"><img src="img/05.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+            <a href="javascript:"><img src="img/01.jpg" /></a>
+        </li>
+    </ul>
+    <ol></ol>
+</div>
+<script>
+    jQuery(function () {
+        $('.lunbo').lunbo();
+    })
+</script>
+</body>
+</html>

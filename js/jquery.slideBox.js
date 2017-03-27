@@ -15,7 +15,10 @@
         };
         var settings = $.extend(defaults, options || {});
         //计算相关数据
-        var wrapper = $(this), ul = wrapper.children('ul.items'), lis = ul.find('li'), firstPic = lis.first().find('img');
+        var wrapper = $(this),
+            ul = wrapper.children('ul.items'),
+            lis = ul.find('li'),
+            firstPic = lis.first().find('img');
         var li_num = lis.size(), li_height = 0, li_width = 0;
         //定义滚动顺序:ASC/DESC.ADD.JENA.201208081718
         var order_by = 'ASC';
@@ -44,7 +47,10 @@
                 }).appendTo(tips);
                 var nums = $('<div class="nums"></div>').hide().appendTo(tips);
                 lis.each(function(i, n) {
-                    var a = $(n).find('a'), text = a.attr('title'), href = a.attr('href'), css = '';
+                    var a = $(n).find('a'),
+                        text = a.attr('title'),
+                        href = a.attr('href'),
+                        css = '';
                     i == settings.startIndex && (css = 'active');
                     $('<a>').attr('href', href).text(text).addClass(css).css('borderRadius', settings.clickBarRadius+'px').mouseover(function(){
                         $(this).addClass('active').siblings().removeClass('active');
@@ -70,7 +76,8 @@
         }
         //开始轮播
         var start = function() {
-            var active = ul.find('li.active'), active_a = active.find('a');
+            var active = ul.find('li.active'),
+                active_a = active.find('a');
             var index = active.index();
             if(settings.direction == 'left'){
                 offset = index * li_width * -1;
