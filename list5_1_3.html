@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>复选框</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <style>
+        input,button{display: inline-block; margin: 15px 0px; }
+    </style>
+</head>
+<br>
+<br action="#" method="get" id="form_1">
+    <input type="checkbox" value="足球" name="items">足球
+    <input type="checkbox" value="篮球" name="items">篮球
+    <input type="checkbox" value="羽毛球" name="items">羽毛球
+    <input type="checkbox" value="什么球" name="items">什么球</br>
+
+    <input id="btn1" type="button" value="全选">
+    <input id="btn2" type="button" value="全不选">
+    <input id="btn3" type="button" value="反选">
+    <input id="btn" type="button" value="提交">
+
+</form>
+<script>
+    $(function () {
+        $('#btn1').on('click',function () {
+            $('[name=items]:checkbox').prop('checked',true);
+        });
+        $('#btn2').on('click',function () {
+            $('[name=items]:checkbox').prop('checked',false);
+        })
+        $('#btn3').on('click',function () {
+            $('[name=items]:checkbox').each(function () {
+                $(this).prop('checked',!$(this).prop('checked'));
+            })
+
+        })
+        $('#btn').on('click',function () {
+            var str = '你选中的是：\r\n';
+            $('[name=items]:checkbox:checked').each(function () {
+                str += $(this).val()+'\r\n';
+            })
+            alert(str);
+        })
+    });
+</script>
+</body>
+</html>

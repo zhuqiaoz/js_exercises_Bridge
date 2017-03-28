@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>from_table</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <style>
+        *{margin: 0;padding: 0;}
+        .wrap{margin: 150px auto;text-align: center;}
+        /*input:focus,textarea:focus{border: 1px solid #f00;background: #fcc;}*/
+        .focus{border: 1px solid #f00;background: #fcc;}
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <form action="#" method="get" id="form_1">
+        <div>
+            <label for="username">名称：</label>
+            <input type="text" name="名称" placeholder="名称">
+        </div>
+        <div>
+            <label for="passwd">密码：</label>
+            <input type="password" name="密码" placeholder="密码">
+        </div>
+        <div>
+
+            <label for="email">详细信息：</label>
+            <textarea type="" name="详细信息" placeholder="详细信息"></textarea>
+        </div>
+    </form>
+    <form action="#" method="get" id="form_2">
+        <div class="form_caption">
+            <a href="javascript:" id="bigger">放大</a>
+            <a href="javasctipt:" id="small">缩小</a>
+        </div>
+        <textarea id="comment" rows="8" cols="30">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        </textarea>
+    </form>
+    <form id="form_3" action="#" method="get">
+        <div class="form_caption">
+            <a href="javascript:" id="bigger_1">放大</a>
+            <a href="javasctipt:" id="small_1">缩小</a>
+        </div>
+        <textarea id="comment_1" rows="6" cols="30" style="overflow: scroll">
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+            内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容
+        </textarea>
+    </form>
+</div>
+<script>
+    $(function () {
+        $('#form_1 :input').focus(function () {
+            $(this).addClass('focus');
+        }).blur(function () {
+            $(this).removeClass('focus');
+        });
+        $('#bigger').on('click',function () {
+            if ($('#comment').height() < 220){
+                $('#comment').animate({'height':'+=50'});
+            }
+        });
+        $('#small').on('click',function () {
+            if ($('#comment').height() > 200){
+                $('#comment').animate({'height':'-=50'});
+            }
+        });
+        $('#bigger_1').on('click',function () {
+            $('#comment_1').animate({'scrollTop':'+=20'})
+        });
+        $('#small_1').on('click',function () {
+            var scrtop = $('#comment_1').scrollTop();
+            $('#comment_1').animate({'scrollTop':'-='+scrtop})
+        })
+
+    })
+</script>
+
+
+</body>
+</html>

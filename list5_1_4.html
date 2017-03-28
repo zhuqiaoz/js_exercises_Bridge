@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <style>
+        *{margin: 0;padding: 0}
+        .center{margin: 100px auto;text-align: center;padding: 10px;height: 600px;}
+        .select_left{float: left;margin-left: 400px;}
+        .select_right{float: left;margin-left: 15px;}
+        #sec_1,#sec_2{width: 150px;height: 200px;}
+        .btn_1 span,.btn_2 span{height: 30px;line-height: 30px;display: block;cursor: pointer;border: 1px solid #666;}
+    </style>
+</head>
+<body>
+    <div class="center" style="width: 1190px;">
+        <div class="select_left">
+            <select multiple id="sec_1">
+                <option>选项一</option>
+                <option>选项二</option>
+                <option>选项三</option>
+                <option>选项四</option>
+                <option>选项五</option>
+                <option>选项六</option>
+                <option>选项七</option>
+            </select>
+            <div class="btn_1">
+                <span id="add">选中添加右边</span>
+                <span id="add_all">全部添加右边</span>
+            </div>
+        </div>
+        <div class="select_right">
+            <select multiple id="sec_2">
+
+            </select>
+            <div class="btn_2">
+                <span id="rem">选择添加左边</span>
+                <span id="rem_all">选择添加左边</span>
+            </div>
+        </div>
+    </div>
+<script>
+    $(function () {
+        $('#add').on('click',function () {
+            var add = $('.select_left option:selected');
+            add.appendTo($('#sec_2'));
+        });
+        $('#add_all').on('click',function () {
+            var add_all = $('.select_left option');
+            add_all.appendTo($('#sec_2'));
+        });
+        $('#rem').on('click',function () {
+            var add = $('.select_right option:selected');
+            $('#sec_1').append(add);
+        });
+        $('#rem_all').on('click',function () {
+            var add_all = $('.select_right option');
+            $('#sec_1').append(add_all);
+        })
+    })
+</script>
+</body>
+</html>

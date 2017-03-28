@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <style>
+        *{margin: 0;padding: 0;}
+        form{margin: 150px auto;height: 600px;width: 500px;}
+        .int{width: 450px;height: 45px;line-height: 45px;float: left;padding: 5px 0;position: relative;}
+        .int label{padding: 2px;float: left;width: 90px;}
+        .int input{width: 250px;height: 35px;line-height: 35px;padding: 2px 8px;}
+        .int strong{color: red;}
+        .int span{position: absolute;right: 87px;color: red;}
+    </style>
+</head>
+<body>
+<form method="get" action="#">
+    <div class="int">
+        <label>用户名：</label>
+        <input type="text" class="ed" name="用户名" id="username" placeholder="请输入用户名">
+    </div>
+    <div class="int">
+        <label>邮箱：</label>
+        <input type="text" name="邮箱" id="email" placeholder="邮箱">
+    </div>
+    <div class="int">
+        <label>密码：</label>
+        <input type="password" class="ed" name="密码" id="passwd" placeholder="密码">
+    </div>
+    <div class="int">
+        <label>重复密码：</label>
+        <input type="password" class="ed" name="重复密码" id="passwd_cf" placeholder="重复密码">
+    </div>
+    <div class="int">
+        <button type="submit" id="submit" name="提交">提交</button>
+    </div>
+    <script>
+        $(function () {
+            $('form input').each(function () {
+                if($(this).hasClass('ed')){
+                    var app = $('<strong>*</strong>');
+                    $(this).parent().append(app);
+                }
+            });
+
+            $('form :input').blur(function () {
+                if ($(this).is('#username')){
+                    $(this).parent().find('span').remove();
+                    if(this.value== ''){
+                        var text = $('<span>用户名为空</span>')
+                        $(this).parent().append(text);
+                    }else if(this.value.length < 6){
+                        var text = $('<span>请输入六位以上用户名</span>')
+                        $(this).parent().append(text);
+                    }else if(this.value.charAt(0)<89){
+                        var text = $('<span>请以英文开头</span>')
+                        $(this).parent().append(text);
+                    }else {
+                        $(this).parent().find('span').remove();
+                    }
+                };
+                if ($(this).is('#email')){
+                    if (this.value.replace(/\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/)){
+                        $(this).parent().find('span').remove();
+                        var text = $('<span>请输入正确的邮箱地址</span>')
+                        $(this).parent().append(text);
+                    }else {
+                        $(this).parent().find('span').remove();
+                    }
+                };
+                if ($(this).is('#passwd_cf,#passwd')){
+                    var pass = $('#passwd').val();
+                    var pass_cf = $('#passwd_cf').val();
+                    if (!(pass === pass_cf)){
+                        $(this).parent().find('span').remove();
+                        var text = $('<span>两次输入不一致</span>')
+                        $(this).parent().append(text);
+                    }else {
+                        $(this).parent().find('span').remove();
+                    }
+                }
+            });
+            $('#submit').click(function () {
+                return false;
+            })
+        })
+    </script>
+</form>
+</body>
+</html>
