@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>正则替换文本框内的空格</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        .wrap{margin:0 auto;padding-top: 100px;width:250px;}
+        #input{line-height: 20px; padding: 3px 5px; text-align: center;}
+        #button{line-height: 20px; padding:3px 10px; background-color: #269CE9;  border-color: #269CE9;color: #fff; text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
+            border: 1px solid #bbb; border-radius: 3px;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <input id="input" type="text" value="[    这个是文本框    ]">
+        <button id="button" > 点击 </button>
+    </div>
+<script>
+    window.onload=function () {
+        var Obtn = document.getElementById('button');
+        var Oput = document.getElementById('input');
+        Obtn.onclick = function () {
+            Oput.value = Oput.value.replace(/(\s|\u00A0)+|(\s|\u00A0)+/g,'');
+        }
+    }
+</script>
+</body>
+</html>

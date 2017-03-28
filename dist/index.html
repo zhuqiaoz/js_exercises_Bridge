@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+    <div class="wrap shadow">
+        <ol id="ol" class="list">
+        </ol>
+    </div>
+<script>
+    var str = '';
+    var data = [
+        [
+            { title : '第一章 表单常用代码'},
+            { url : 'other/index0.html', title : '去除字符串左右的空格' },
+            { url : 'other/index1.html', title : '验证用户是否输入' },
+            { url : 'other/index2.html', title : '禁止用户输入' },
+            { url : 'other/index3.html', title : '关闭用户中文输入法' },
+            { url : 'other/index4.html', title : '禁止用户复制和粘贴' },
+            { url : 'other/index5.html', title : '限制只能输入数字' },
+            { url : 'other/index6.html', title : '限制字符串长度' },
+            { url : 'other/index7.html', title : '仿微博提示可输入剩余字数' },
+            { url : 'other/index8.html', title : '换行文本自动滚动' },
+            { url : 'other/index9.html', title : 'Ctrl + Return提交表单' },
+            { url : 'other/index10.html', title : '文本内容进行关键字过滤' },
+            { url : 'other/index11.html', title : '全选反选少选复选框' },
+            { url : 'other/index12.html', title : '动态操作下拉选项' },
+            { url : 'other/index13.html', title : '级联菜单' },
+            { url : 'other/index14.html', title : '可添加的下拉选项' }
+        ],
+        [
+            { title : '第二章 常用图片相关代码'},
+            { url : 'other/index15.html', title : '可添加的下拉选项' },
+            { url : 'other/index16.html', title : '图片放大镜效果' },
+            { url : 'other/index17.html', title : '点击图片逐渐放大' }
+        ],
+        [
+            { title : '第三章 内容展示常用代码'},
+            { url : 'other/index18.html', title : '单元行上鼠标悬停提示' },
+            { url : 'other/index19.html', title : '无刷新切换皮肤，刷新后保存' },
+            { url : 'other/index20.html', title : '隔行换色鼠标经过换色' },
+            { url : 'other/index21.html', title : '添加或删除表格行' },
+            { url : 'other/index22.html', title : '可拖动的弹出层' },
+            { url : 'other/index23.html', title : '选项卡轮播' },
+            { url : 'other/index24.html', title : '模拟滚动条' },
+            { url : 'other/index25.html', title : '缓动的对联广告' },
+            { url : 'other/index26.html', title : '拖动滑块验证' }
+        ],
+        [
+            { title : '第四章 常用图片轮换'},
+//            { url : 'other/index.html', title : '百度爱玩 - 图片轮换' },
+//            { url : 'other/index.html', title : '百度爱玩 - 遮罩下拉' },
+//            { url : 'other/index.html', title : '百度爱玩 - 榜单tab切换' },
+//            { url : 'other/index.html', title : 'css3弹出层' },
+//            { url : 'other/index.html', title : '米4-活动页面' },
+//            { url : 'other/index.html', title : '百度爱玩 - 图片轮换' },
+//            { url : 'other/index.html', title : '百度微购－中秋送好礼' },
+//            { url : 'other/index.html', title : '商品分类' },
+//            { url : 'other/index.html', title : '渐显的tab菜单2' },
+//            { url : 'other/index.html', title : '经典图片轮换－单个滚动' },
+//            { url : 'other/index.html', title : '经典图片轮换－整个翻页' }
+        ],
+        [
+            { title : '第五章 移动端效果'},
+            { url : 'other/index36.html', title : '选项卡切换' }
+        ],
+        [
+            { title : '第六章 时间日期效果'},
+            { url : 'other/index37.html', title : '全日历' },
+//            { url : 'other/index.html', title : 'canvas实现小时钟' }
+        ],
+        [
+            { title : '第七章 其它练习'},
+            { url : 'other/index39.html', title : '乘法口诀输出' },
+            { url : 'other/index40.html', title : '旋转的球'}
+        ]
+    ];
+    for (var i = 0;i<data.length;i++){
+        var item = data[i];
+        var sub = '';
+        for (var j = 0; j<item.length;j++){
+            var sun = item[j];
+            if(j == 0){
+                sub += '<li><h1><a href="javasrcipt:;" title="' +sun.title+'"> '+sun.title+'</a></h1><dl class="sub-dl">';
+            }else {
+                sub += '<dd><a href="' + sun.url + '" target="_blank" title="' + sun.title + '">' + sun.title + '</a></dd>';
+            }
+            if(j == item.length - 1){
+                sub += '</dl></li>';
+            }
+        }
+        str +=sub;
+    }
+    var ol = document.getElementById('ol');
+    ol.innerHTML = str;
+    var h1 = ol.getElementsByTagName('h1');
+    var dl = ol.getElementsByTagName('dl');
+    var tmp = -1;
+    var open = false;
+    for (var i = 0; i<h1.length;i++){
+        h1[i].index = i;
+        h1[i].onclick = function () {
+            for (var i= 0;i<h1.length;i++){
+                dl[i].style.display = 'none';
+            }
+            if(tmp == this.index && open){
+                dl[this.index].style.display = 'none';
+                open = false;
+            } else {
+                dl[this.index].style.display = 'block';
+                open = true;
+            }
+            tmp = this.index;
+        }
+    }
+</script>
+</body>
+</html>
