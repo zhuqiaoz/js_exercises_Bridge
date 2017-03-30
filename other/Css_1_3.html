@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>背景色渐变动画</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="icon" href="../favicon.ico">
+    <style>
+         div{width: 200px;height: 50px;margin: 50px auto;}
+        .demo1 {background: linear-gradient(90deg,  #ffc700 0%, #e91e1e 100%);}
+        .demo2 {background: linear-gradient(90deg,  #ffc700 0%, #e91e1e 100%);animation: gradientChange 2s infinite;}
+         @keyframes gradientChange  { 100% {background: linear-gradient(90deg,  #e91e1e 0%, #6f27b0 100%);}}
+        .demo3{background: #ffc700;animation: gradientChange 3s infinite alternate;}
+         @keyframes gradientChange  {100% {background: #e91e1e;}}
+        .demo4{ background: linear-gradient(90deg,  #ffc700 0%, #e91e1e 50%, #6f27b0 100%);background-size: 200% 100%;background-position: 0 0;animation: bgposition 2s infinite linear alternate;}
+         @keyframes bgposition {0% {background-position: 0 0;} 100% {background-position: 100% 0; } }
+         .demo5 {background: linear-gradient(90deg,  #ffc700 0%, #e91e1e 33%, #6f27b0 66%, #00ff88 100%);background-position: 100% 0;animation: bgSize 5s infinite ease-in-out alternate;}
+         @keyframes bgSize {0% {background-size: 300% 100%; } 100% {background-size: 100% 100%;}}
+         .demo6 {margin: 50px auto;width: 200px;line-height: 64px;text-align: center;color: #fff;font-size: 24px;cursor: pointer;background: linear-gradient(#024e8a 0%, #2d80c1 50%, #83c7fd 100%);background-size: 100% 150%;background-position: 0 0;transition: .3s;}
+         .demo6:hover {background-position: 0 75%;}
+
+    </style>
+</head>
+<body>
+    <!--普通渐变-->
+    <div class="demo1"></div>
+    <!--animation -->
+    <div class="demo2"></div>
+    <!--animation单颜色渐变-->
+    <div class="demo3"></div>
+    <!---->
+    <div class="demo4"></div>
+    <!---->
+    <div class="demo5"></div>
+    <!---->
+    <div class="demo6">Hover</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Css_1_4</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="icon" href="../favicon.ico">
+    <style>
+         html:root{background: #F2F2F2;}
+         div{margin: 50px auto;height: 100px;width: 100px; border:1px solid #666666; position: relative;}
+        .div1:before{ transform:rotatez(45deg) scale(1.414);  content: ''; display: block;position: absolute; top:0; left:0; width:100%;height: 50%;box-sizing:border-box;border-bottom:1px solid deeppink;transform-origin:bottom center;}
+        .div2{background:linear-gradient(45deg, transparent 49.5%, deeppink 49.5%, deeppink 50.5%, transparent 50.5%);}
+        .div3::before{content:"";position:absolute;left:0;bottom:0;width:0;height:0;border:49px solid transparent;border-left:49px solid deeppink;border-bottom:49px solid deeppink;animation:slash 6s infinite ease;}
+        .div3::after{content:"";position:absolute;left:0;bottom:0;width:0;height:0;border:48px solid transparent;border-left:48px solid #f2f2f2;border-bottom:48px solid #f2f2f2;animation:slash2 6s infinite ease;}
+         @keyframes slash{
+             0%{transform:translate(-50px);}
+             30%{transform:translate(0px);}
+             100%{transform:translate(0px);}
+             }
+         @keyframes slash2{
+             0%{transform:translate(-100px);}
+             30%{transform:translate(-100px);}
+             60%{transform:translate(0px);}
+             100%{transform:translate(0px);}
+             }
+         .div4{background: #FF1493}
+         .div4::before{content:"";position:absolute;left:0px;top:0;right:0;bottom:0;-webkit-clip-path: polygon(0 0, 0 100px, 100px 100px, 0 0);background:#fff;border:1px solid #333;transform:translateX(-120px);animation:move 5s infinite linear;}
+         .div4::after{content:"";position:absolute;left:0;top:0;right:0;bottom:0;-webkit-clip-path: polygon(100px 99px, 100px 0, 1px 0, 100px 99px);background:#fff;border:1px solid #333;transform:translateX(120px);animation:move 5s infinite linear;}
+
+         @keyframes move{
+             40%{transform:translateX(0px);}
+             100%{transform:translateX(0px);}
+             }
+    </style>
+</head>
+<body>
+<!--Css旋转缩放-->
+<div class="div1"></div>
+<!--线性渐变实现-->
+<div class="div2"></div>
+<!--伪元素+三角形-->
+<div class="div3"></div>
+<!---->
+<div class="div4"></div>
+</body>
+</html>
