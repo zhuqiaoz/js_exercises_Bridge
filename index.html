@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bridge_案列</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+<div class="wrap">
+    <div class="nav clearfix">
+        <ul id="ul" class="items"></ul>
+    </div>
+</div>
+<script>
+    var str='';
+    var list =[
+        [
+            { title : '第一章  表单应用' },
+            { url : 'other/list5_1_5.html' , title : '账号密码提示'},
+            { url : 'other/list5_1_4.html' , title : 'Select选择'},
+            { url : 'other/list5_1_3.html' , title : '单选，多选，全选'}
+        ],
+        [
+            { title : '第二章  轮播图' },
+            { url : 'other/list_2_4_1.html' , title : '轮播图03_不含有向前向后'},
+            { url : 'other/index_2.html' , title : '标题二'}
+        ],
+        [
+            { title : '第三章  表单内应用' },
+            { url : 'other/index_1.html' , title : '标题一'},
+            { url : 'other/index_2.html' , title : '标题二'}
+        ],
+        [
+            { title : '第四章  表单内应用' },
+            { url : 'other/index_1.html' , title : '标题一'},
+            { url : 'other/index_2.html' , title : '标题二'}
+        ],
+        [
+            { title : '第五章  收集的效果'},
+            { url : 'other/index_旋转的球.html' , title : '旋转的球'},
+            { url : 'other/index_大写金额.html' , title : '大写金额'}
+        ]
+    ];
+
+    for (var i=0;i<list.length;i++){
+        var sub = '';
+        var itmes=list[i];
+        for (var j=0;j<itmes.length;j++){
+            var item_list = itmes[j];
+            if (j == 0){
+                sub += '<li><h1><a href="javascript:" title=" '+ item_list.title +' ">'+ item_list.title +'</a></h1><dl class="nav_sub">'
+            }else {
+                sub +='<dd><a href="'+ item_list.url+' " title="'+ item_list.title+' ">'+ item_list.title +'</a></dd>'
+            }
+            if (j == itmes.length-1){
+                sub +='</dl></li>';
+            }
+        }
+        str +=sub;
+    };
+    var oul = document.getElementById('ul');
+    oul.innerHTML = str;
+    var oh1 =oul.getElementsByTagName('h1');
+    var odl = oul.getElementsByTagName('dl');
+    var tmp = -1;
+    var open = false;
+    for (var i=0;i<oh1.length;i++){
+        oh1[i].index =i;
+        oh1[i].onclick = function () {
+            for (var i=0;i<oh1.length;i++){
+                odl[i].style.display = 'none';
+            }
+            if(tmp == this.index && open){
+                odl[this.index].style.display = 'none';
+                open = false;
+            } else {
+                odl[this.index].style.display = 'block';
+                open = true;
+            }
+            tmp = this.index;
+
+        };
+    }
+</script>
+</body>
+</html>

@@ -70,9 +70,6 @@
 
 
 
-
-
-
             start();
         };
         
@@ -113,7 +110,7 @@
         };
 
         wrap.hover(function(){
-            $('.prep,.next').show();
+            stop();
         }, function(){
             wrap.data('timeid', window.setTimeout(start, settings.delay*1000));//ADD.JENA.201303141309
         });
