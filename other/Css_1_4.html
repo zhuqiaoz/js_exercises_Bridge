@@ -31,6 +31,10 @@
              40%{transform:translateX(0px);}
              100%{transform:translateX(0px);}
              }
+        .div5{width: 0;height: 0;color: red; position: relative;border-left:100px solid transparent;border-right:100px solid transparent;border-bottom: 70px solid red;transform: rotate(-35deg);}
+        .div5:before{transform: rotate(-35deg); position: absolute;top: -45px;left: -65px;color: white; content: ''; width: 0;height: 0;border-left:30px solid transparent;border-right:30px solid transparent;border-bottom: 80px solid red;}
+        .div5:after{transform: rotate(-70deg);width: 0;height: 0;display: block;position: absolute;color: red;top: 3px;left: -105px;border-left: 100px solid transparent;border-right: 100px solid transparent;border-bottom: 70px solid red; content: "";}
+
     </style>
 </head>
 <body>
@@ -42,5 +46,7 @@
 <div class="div3"></div>
 <!---->
 <div class="div4"></div>
+<!--css三角形-->
+<div class="div5"></div>
 </body>
 </html>
