@@ -1,39 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>CSS 继承 inherit</title>
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="icon" href="../favicon.ico">
-    <style>
-        div {
-            margin: 50px auto 200px;
-            width: 200px;
-            height: 200px;
-            background-image: url('http://images2015.cnblogs.com/blog/608782/201609/608782-20160926101029078-1479229145.jpg');
-        }
 
-        .below {
-            -webkit-box-reflect: below;
-        }
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS 继承 inherit</title>
+		<link rel="stylesheet" href="../css/reset.css">
+		<link rel="icon" href="../favicon.ico">
+		<style>
+			div{ margin: 50px auto 200px; width: 200px; height: 200px; background-image: url('http://images2015.cnblogs.com/blog/608782/201609/608782-20160926101029078-1479229145.jpg');}
+			.below{ -webkit-box-reflect: below;}
+			.left{ -webkit-box-reflect: left;}
+			.right{ -webkit-box-reflect: right;}
+			.above{ -webkit-box-reflect: above;}
 
-        .left {
-            -webkit-box-reflect: left;
-        }
+		</style>
+	</head>
 
-        .right {
-            -webkit-box-reflect: right;
-        }
+	<body>
+		<div class='below clearfix'>below</div>
+		<div class='left clearfix'>left</div>
+		<div class='right clearfix'>right</div>
+		<div class='above clearfix'>above</div>
+	</body>
 
-        .above {
-            -webkit-box-reflect: above;
-        }
-    </style>
-</head>
-<body>
-    <div class='below clearfix'>below</div>
-    <div class='left clearfix'>left</div>
-    <div class='right clearfix'>right</div>
-    <div class='above clearfix'>above</div>
-</body>
 </html>
