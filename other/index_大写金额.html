@@ -6,13 +6,38 @@
 		<title>金额大写</title>
         <link rel="stylesheet" href="../css/reset.css">
 		<script type="text/javascript" src="../js/jquery.js" ></script>
+        <style>
+            .list{margin: 50px auto;}
+            .O_div{padding: 3px 0 3px 3px;background: #f50;width: 310px;}
+            #M_txt{height: 22px;width: 250px;line-height: 22px;padding: 6px 0; text-indent: 10px;border: 0;background: #ffffff;}
+            #M_but{height: 34px;width: 60px;margin-left: -4px;background: #f50;border: 0;cursor: pointer;color: #ffffff;font-weight: 700;}
+            .results{float: left;height: 34px;line-height: 34px;color: fuchsia;text-align: center;margin-left: 50px;font-size: 1.5rem;}
+        </style>
 	</head>
 <body>
-    <div class="wrap">
+    <div class="wrap list">
+        <div class="O_div" style="float: left">
+            <input type="text" id="M_txt" placeholder="请输出正确的数字" />
+            <button id="M_but" type="button" >转换</button>
 
+        </div>
+        <div class="results"></div>
     </div>
     <script>
-        var digitUppercase = function(n) {
+        var M_btn = document.getElementById('M_but');
+        M_btn.onclick=function () {
+            var M_txt = document.getElementById('M_txt');
+            var value = M_txt.value;
+            var res = /\D/g;
+            if (res.test(value)){
+                alert('请输入数字');
+            }else {
+                var M_resul = document.getElementsByClassName('results')[0];
+                M_resul.innerHTML=digitUppercase(value);
+            }
+
+        };
+       function digitUppercase(n) {
             var fraction = ['角', '分'];
             var digit = [
                 '零', '壹', '贰', '叁', '肆',
@@ -30,9 +55,7 @@
                 s =s+ (digit[Math.floor(n * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '');
             }
             s = s || '整';
-            console.log(s)
             n = Math.floor(n);
-            console.log(n)
             for (var i = 0; i < unit[0].length && n > 0; i++) {
                 var p = '';
                 for (var j = 0; j < unit[1].length && n > 0; j++) {

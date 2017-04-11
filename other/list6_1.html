@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>防微博剩余字数</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/reset.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <textarea id="text1" maxlength="150" cols="50" rows="10"></textarea>
+        <span>还能输入<i style="color: red">150</i>个字</span>
+    </div>
+<script>
+    $('#text1').on('input propertychange',function () {
+        var maxvalue = 150;
+        var inputtext = $('#text1').val().length;
+        var value=maxvalue-inputtext;
+        if (value){
+            $('span').children('i').html(value);
+        }else {
+            alert('最多输入150个字')
+        }
+
+    })
+</script>
+</body>
+</html>

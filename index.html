@@ -19,12 +19,14 @@
             { title : '第一章  表单应用' },
             { url : 'other/list5_1_5.html' , title : '账号密码提示'},
             { url : 'other/list5_1_4.html' , title : 'Select选择'},
-            { url : 'other/list5_1_3.html' , title : '单选，多选，全选'}
+            { url : 'other/list5_1_3.html' , title : '单选，多选，全选'},
+            { url : 'other/list6_1.html' , title : '防微博剩余字数'},
+            { url : 'other/list6_2.html' , title : '文本高度自动滚动'}
         ],
         [
             { title : '第二章  轮播图' },
             { url : 'other/list_2_4_1.html' , title : '轮播图03_不含有向前向后'},
-            { url : 'other/index_2.html' , title : '标题二'}
+            { url : 'other/list2_4.html' , title : '轮播图01'}
         ],
         [
             { title : '第三章  CSS应用' },
@@ -34,8 +36,9 @@
             { url : 'other/Css_1_4.html' , title : 'CSS 斜线'},
             { url : 'other/Css_1_5.html' , title : 'Css导航切换'},
             { url : 'other/Css_1_6.html' , title : 'Svg动画'},
-            { url : 'other/Css_1_7.html' , title :'个性咨询'},
-            { url : 'other/Css_1_8.html' , title :'会动的树'}
+            { url : 'other/Css_1_7.html' , title : '个性咨询'},
+            { url : 'other/Css_1_8.html' , title : '会动的树'},
+            { url : 'other/Css_1_9.html' , title : 'CSS Loading'}
         ],
         [
             { title : '第四章  表单内应用' },
@@ -49,7 +52,7 @@
         ],
         [
             { title : '第六章  其他'},
-            { url : 'other/index_multiplication.html' , title : '旋转的球'}
+            { url : 'other/index_multiplication.html' , title : '乘法口诀输出'}
         ]
     ];
 
@@ -61,7 +64,7 @@
             if (j == 0){
                 sub += '<li><h1><a href="javascript:" title=" '+ item_list.title +' ">'+ item_list.title +'</a></h1><dl class="nav_sub">'
             }else {
-                sub +='<dd><a href="'+ item_list.url+' " title="'+ item_list.title+' ">'+ item_list.title +'</a></dd>'
+                sub +='<dd><a target="_blank" href="'+ item_list.url+' " title="'+ item_list.title+' ">'+ item_list.title +'</a></dd>'
             }
             if (j == itmes.length-1){
                 sub +='</dl></li>';

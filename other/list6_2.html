@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文本高度自动滚动</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/reset.css">
+    <script type="text/javascript" src="../js/jquery.js"></script>
+    <style>
+        .roll{height: 120px;overflow: hidden;}
+        ul li{height: 20px;line-height: 20px;text-align: center;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h3>文本高度自动滚动</h3>
+        <div class="roll" >
+            <ul>
+                <li>锦瑟无端五十弦，一弦一柱思华年。</li>
+                <li>庄生晓梦迷蝴蝶，望帝春心托杜鹃。</li>
+                <li>沧海月明珠有泪，蓝田日暖玉生烟。</li>
+                <li>此情可待成追忆？只是当时已惘然。</li>
+                <li>锦瑟无端五十弦，一弦一柱思华年。</li>
+                <li>庄生晓梦迷蝴蝶，望帝春心托杜鹃。</li>
+                <li>沧海月明珠有泪，蓝田日暖玉生烟。</li>
+                <li>此情可待成追忆？只是当时已惘然。</li>
+            </ul>
+        </div>
+    </div>
+<script>
+    $(function () {
+            var tiome = setInterval(function () {
+                $('ul').animate({'margin-top':'-20px'},function () {
+                    $('ul').find('li:first').appendTo($('ul'));
+                    $('ul').css({'margin-top':'0px'});
+                })
+            },1500);
+
+    });
+</script>
+</body>
+</html>
