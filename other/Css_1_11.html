@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transition_Border</title>
+    <link rel="icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        a{float: left;overflow: hidden;position: relative;display: block;margin: 0 7px 7px 0;}
+        a:hover::after,a:hover::before{opacity: 1;transform: scale(1);-webkit-transform: scale(1);transition: all 0.5s;-webkit-transition: all 0.5s;}
+        a::before{content: "";transform: scale(1, 0);-webkit-transform: scale(1, 0);border-left: 2px solid #fff;border-right: 2px solid #fff;position: absolute;bottom: 0;left: 0;right: 0;top: 0; opacity: 0.35;}
+        a::after{content: "";transform: scale(0, 1);-webkit-transform: scale(0, 1);border-bottom: 2px solid #fff;border-top: 2px solid #fff;position: absolute;bottom: 0;left: 0;right: 0;top: 0; opacity: 0.35;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <a href="" target="_blank" class="able">
+                 <img class="" src="http://img14.360buyimg.com/cms/jfs/t6520/41/347908323/63022/d0c5e21c/593df861N82c70c57.jpg" alt="">
+        </a>
+    </div>
+</body>
+</html>

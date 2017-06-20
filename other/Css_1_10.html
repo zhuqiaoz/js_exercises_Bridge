@@ -2,9 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>CSS垂直水平居中实现的方法</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        div > div{height: 25px;margin-bottom: 20px;width: 600px;}
+        .div1{text-align: center;border: 1px solid forestgreen;width: 600px;display: inline-block;}
+        .div3{border: 1px solid aquamarine;margin: 0 auto;}
+        .div5{position: absolute;left: 50%;transform: translate(-50%,0);border: 1px solid chartreuse;}
+        .div6{position: absolute;margin-left: calc(-600px*0.5);left: 50%;border: 1px solid darkblue;top: 160px;}
+        .div7{position: absolute; left:0;right: 0;margin: 0 auto;top: 190px;border: 1px solid darkred;}
+        .div8{margin: 120px auto;}
+        .div8::after,.son{display: inline-block;vertical-align:middle;}
+        .div8::after{width: 100%; content: '';}
+        .div8 p{border: 1px solid darkseagreen;}
+        .div8 span{border:1px solid darkslategrey;}
+        .div9{display: flex;align-items: center; border: 1px solid forestgreen;}
+    </style>
 </head>
 <body>
-$END$
+<div class="wrap">
+    <!--行内元素 text-align:center-->
+    <p class="div1">行内元素 text-align:center</p>
+    <!--块级元素 margin:0 auto-->
+    <div class="div2" style="border: 1px solid darksalmon; margin: 0 auto;">块级元素 margin:0 auto</div>
+    <!--若子元素包含float：left 父元素宽度设置fit-content-->
+    <div class="div3" style="width: fit-content;">
+        <div class="par" style="float: left;height: 10px;">若子元素包含float：left 父元素宽度设置fit-content</div>
+    </div>
+    <!--fiex布局-->
+    <!--<div class="div4">fiex布局</div>-->
+    <!--transform-->
+    <div class="div5">transform</div>
+    <!--绝对定位负margin-->
+    <div class="div6">绝对定位负margin</div>
+    <!--绝对定位left:0;right:0;margin:0 auto;-->
+    <div class="div7">绝对定位left:0;right:0;margin:0 auto;</div>
+    <!--垂直居中-->
+    <!--单行文本 line-heigth-->
+    <div class="div8">
+        <p style="height: 25px;line-height: 25px;width: 600px;">单行文本 line-heigth</p>
+        <span class="son">行内块元素</span>
+    </div>
+    <!--flex-->
+</div>
 </body>
 </html>

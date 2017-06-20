@@ -1,10 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>模仿一号店轮播图</title>
+		<link rel="icon" href="../favicon.ico">
+		<link rel="stylesheet" href="../css/reset.css">
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<style>
+			.b_con{ float: left; width: 329px; height: 360px; overflow: hidden; position: relative; background: #fff; border-right: 1px solid #f4f4f4; overflow: hidden;}
+			.b_con .slider_index_ad{ position: relative; width: 330px; height: 360px;}
+			.b_con .slider_index_ad .img_box{ position: absolute; width: 9000px;}
+			.b_con .slider_index_ad .img_box a{ float: left; width: 330px; height: 360px;}
+			.trig_box{ position: absolute; bottom: 20px; width: 100%; text-align: center;}
+			.trig_box li{ display: inline-block;}
+			.trig_box li a{ float: left; text-align: left; width: 30px; margin: 0 3px; height: 4px; font-size: 0; line-height: 0; background: #ddd;}
+			.trig_box li .cur{ height: 6px; margin-top: -1px;}
+			.trig_box li a span{ height: 6px; width: 10px; display: block; background: red;}
+
+		</style>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<div class="b_con">
+				<div class="slider_index_ad  aa" id="aa">
+					<ul class="img_box clearfix" style="left: 0px;">
+						<a title="" target="_blank" href="">
+							<img width="330" height="360" src="../img/201612291422347912.jpg" alt="">
+						</a>
+						<a title="" target="_blank" href="">
+							<img width="330" height="360" src="../img/201606281550167199.jpg" alt="" ;="">
+						</a>
+						<a title="" target="_blank" href="">
+							<img width="330" height="360" src="../img/201606281550167457.jpg" alt="">
+						</a>
+					</ul>
+					<ul class="trig_box">
+						<li class="clearfix">
+							<a class=""><span style="width: 0px; overflow: hidden;"></span></a>
+							<a class=""><span style="width: 0px; overflow: hidden;"></span></a>
+							<a class=""><span style="width: 0px; overflow: hidden;"></span></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script>
+			$(function() {
+				sliderIndexAd = function(c) {
+					function d(z) {
+						if(!z || z.size() == 0) {
+							return
+						}
+						var r = z.find(".img_box");
+						var a = z.find(".trig_box li");
+						var q = r.children();
+						var w = a.children();
+						var v = q.length;
+						var b = q.eq(0).width();
+						var A = 0;
+						var y = 0;
+						var x = 10000;
+						if(v <= 1) {
+							z.find(".trig_box").hide();
+							return
+						}
+						w.bind("mouseenter", function() {
+							A = $(this).index();
+							t();
+							s();
+
+						});
+						z.bind({
+							mouseenter: function() {
+								clearInterval(y);
+								s()
+							},
+							mouseleave: function() {
+								B();
+								u()
+							}
+						});
+
+						function t() {
+							r.stop().animate({
+								left: -A * b
+							});
+							w.removeClass("cur").eq(A).addClass("cur");
+							u();
+
+						}
+
+						function B() {
+							y = setInterval(function() {
+								A++;
+								if(A > v - 1) {
+									A = 0
+								}
+								t()
+							}, x);
+							u()
+						}
+
+						function u() {
+							var e = z.find(".trig_box li a.cur");
+							z.find(".trig_box li a span").stop().css("width", 0);
+							e.find("span").width(0).animate({
+								width: "30px"
+							}, x, function() {
+								$(this).width(0)
+							})
+						}
+
+						function s() {
+							var e = z.find(".trig_box li a.cur");
+							z.find(".trig_box li a span").stop().css("width", 0);
+							e.find("span").stop().width("100%")
+						}
+						B()
+					}
+					d(c)
+				};
+				var e1 = $(this).find(".aa");
+				sliderIndexAd(e1);
+			})
+		</script>
+	</body>
+
 </html>
