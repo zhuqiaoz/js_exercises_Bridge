@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/reset.css">
+    <style>
+        *{box-sizing: border-box;}
+        .wrap > div{margin: 100px 100px  50px 0px; float: left;}
+        .img_1{background: url('../img/11.jpg')}
+        .item_1{width: 220px;height: 220px;border-radius: 50%;position: relative;cursor: pointer;box-shadow: inset 0 0 0 16px rgba(255,255,255,0.6), 0 1px 2px rgba(0,0,0,0.1);transition: all ease-in-out .5s;}
+        .item_1::before{content: '';display: inline-block;}
+        .item_1:hover{box-shadow: inset 0 0 0 1px rgba(255,255,255,0.1), 0 1px 2px rgba(0,0,0,0.1);}
+        .item_1 .info{position: absolute;background: rgba(63,147,147, 0.8); width: inherit; height: inherit;border-radius: 50%;opacity: 0;transition: all 0.4s ease-in-out;transform: scale(0);top: 0;left:0;}
+        .item_1:hover .info{transform: scale(1);opacity: 1;}
+        .item_1 .info h3{color: #fff;text-transform: uppercase;letter-spacing: 2px; font-size: 22px; margin: 0 30px; padding: 45px 0 0 0; font-family: 'Open Sans', Arial, sans-serif;text-shadow: 0 0 1px #fff, 0 1px 2px rgba(0,0,0,0.3);}
+        .item_1 .info p{font-style: italic;font-size: 12px; color: #fff;padding: 10px 5px;margin: 0 30px;border-top: 1px solid rgba(255,255,255,0.5);transition: all 1s ease-in-out 0.4s;opacity: 0;}
+        .item_1:hover .info p{opacity: 1;}
+
+
+        .item_2{width: 220px;height: 220px;border-radius: 50%;position: relative;cursor: pointer;box-shadow: inset 0 0 0px 0px rgba(200,95,66, 0.4), inset 0 0 0 16px rgba(255,255,255,0.6), 0 1px 2px rgba(0,0,0,0.1);transition: all ease-in-out .5s;}
+        .item_2:hover{box-shadow: inset 0 0 0 110px rgba(200,95,66, 0.4), inset 0 0 0 16px rgba(255,255,255,0.8), 0 1px 2px rgba(0,0,0,0.1);}
+        .img_2{background: url('../img/12.jpg');}
+        .item_2 .info{position: absolute;width: 100%;height: 100%;border-radius: 50%;transition: all ease-out 0.5s;opacity: 0;transform: scale(0);}
+        .item_2:hover .info{opacity: 1;transform: scale(1);}
+        .item_2 .info h3{color: #fff;text-transform: uppercase;letter-spacing: 2px; font-size: 22px; margin: 0 30px; padding: 65px 0 0 0; font-family: 'Open Sans', Arial, sans-serif;text-shadow: 0 0 1px #fff, 0 1px 2px rgba(0,0,0,0.3);}
+        .item_2 .info p{font-style: italic;font-size: 12px; color: #fff;padding: 10px 5px;margin: 0 30px;border-top: 1px solid rgba(255,255,255,0.5);transition: all 1s ease-in-out 0.4s;opacity: 0;}
+        .item_2:hover .info p{opacity: 1;}
+
+        /**/
+        .item_3{width: 220px;height: 220px;border-radius: 50%;position: relative;box-shadow: 0 1px 3px rgba(0,0,0,0.1)}
+        .item_3::before{content: '';display: table;}
+        .item_3 .info{z-index: 1; position: absolute;width: 100%;height: 100%;border-radius: 50%;box-shadow: inset 0 0 0 5px rgba(0,0,0,0.05);overflow: hidden;background: #c9232e;}
+        .item_3 .info h3{color: #fff;text-transform: uppercase;position: relative;letter-spacing: 2px;font-size: 18px; margin: 0 60px;padding: 22px 0 0 0; height: 85px; font-family: 'Open Sans', Arial, sans-serif;text-shadow: 0 0 1px #fff, 0 1px 2px rgba(0,0,0,0.3);}
+        .item_3 .info p {color: #fff;padding: 10px 5px;font-style: italic; margin: 0 30px;font-size: 12px; border-top: 1px solid rgba(255,255,255,0.5);}
+        .item_3 .info p a{display: block; color: #333;width: 80px; height: 80px;background: rgba(255,255,255,0.3); border-radius: 50%;color: #fff;font-style: normal;font-weight: 700;text-transform: uppercase; font-size: 9px;letter-spacing: 1px;padding-top: 24px;margin: 7px auto 0;font-family: 'Open Sans', Arial, sans-serif;opacity: 0;transition: transform 0.3s ease-in-out 0.2s, opacity 0.3s ease-in-out 0.2s, background 0.2s linear 0s;
+    transform: translateX(60px) rotate(90deg);-webkit-backface-visibility: hidden;}
+        .item_3:hover .info p a{opacity: 1;transform: translateX(0px) rotate(0deg);}
+        .item_3 .thumb{width: 100%;height: 100%;border-radius: 50%;overflow: hidden;position: absolute;transform-origin: 95% 40%;transition: all 0.3s ease-in-out;box-shadow: inset 0 0 0 15px rgba(200,95,66, 0.4);}
+        .item_3 .thumb::after{content: '';display: block;width: 8px;height: 8px;top: 40%;right:2%;background: radial-gradient(ellipse at center, rgba(14,14,14,1) 0%,rgba(125,126,125,1) 100%); box-shadow: 0 0 1px rgba(255,255,255,0.9);position: absolute;border-radius: 50%;}
+        .item_3:hover .thumb{    transform: rotate(-110deg);     box-shadow: inset 0 0 0 15px rgba(255,255,255, 0.5), 0 1px 3px rgba(0,0,0,0.2);}
+        .item_3 .img_3{background-image: url('../img/13.jpg');z-index: 12;}
+
+        /**/
+        .item_4{width: 220px;height: 220px;position:relative;border-radius: 50%;box-shadow: 0 1px 2px rgba(0,0,0,0.05);}
+        .chimg_1{background: url('../img/10.jpg')}
+        .item_4::before{content: '';display: table;}
+        .item_4 .info{position: absolute;width: 180px;height: 180px;border-radius: 50%;perspective: 800px;transition: all 0.4s ease-in-out; top: 20px;left: 20px;background: #f9f9f9 url(../img/bg.jpg);box-shadow: 0 0 0 20px rgba(255,255,255,0.2), inset 0 0 3px rgba(115,114, 23, 0.8);}
+        .item_4 .info .chinfo{position: absolute;width: 180px;height: 180px;border-radius: 50%;transition: all 0.4s ease-in-out;transform-style: preserve-3d;}
+        .item_4 .chinfo > div {display:block;position: absolute;width: 100%;height: 100%;background-position:center center;border-radius: 50%;backface-visibility: hidden; }
+        .item_4 .info-back{transform: rotate3d(0,1,0,180deg);background: #000;}
+        .info-back h3{color: #fff;text-transform: uppercase;position: relative;letter-spacing: 2px;font-size: 18px; margin: 0 60px;padding: 22px 0 0 0; height: 85px; font-family: 'Open Sans', Arial, sans-serif;text-shadow: 0 0 1px #fff, 0 1px 2px rgba(0,0,0,0.3);}
+        .info-back p{color: #fff;padding: 10px 5px;font-style: italic; margin: 0 30px;font-size: 12px; border-top: 1px solid rgba(255,255,255,0.5);}
+        .info-back p a{display: block;color: #fff;font-style: normal;font-weight: 700;text-transform: uppercase;font-size: 9px;letter-spacing: 1px;padding-top: 4px;font-family: 'Open Sans', Arial, sans-serif;}
+        .item_4:hover .info{box-shadow: 0 0 0 0 rgba(255,255,255,0.8), inset 0 0 3px rgba(115,114, 23, 0.8);}
+        .item_4:hover .chinfo{transform: rotate3d(0,1,0,-180deg);}
+
+        /**/
+
+        .item_5{width: 220px;height: 220px;border-radius: 50%;position: relative;box-shadow: 0 1px 2px rgba(0,0,0,0.1);cursor: default;}
+        .img_5{background: url('../img/14.jpg')}
+        .item_5::before{content: '';display: table;}
+        .item_5 .info{position: absolute;width: 180px;height: 180px;border-radius: 50%;top: 20px;left: 20px;background: #f9f9f9 url(../img/bg.jpg);box-shadow: 0 0 0 20px rgba(255,255,255,0.2), inset 0 0 3px rgba(115,114, 23, 0.8);}
+        .item_5 .chinfo{position: absolute;width: 180px;height: 180px;border-radius: 50%;}
+        .item_5 .chinfo > div{display: block;position: absolute;width: 100%;height: 100%;border-radius: 50%;background-position: center center;backface-visibility: hidden;}
+        .item_5 .chfront{transition: all 0.6s ease-in-out;}
+        .item_5:hover .chfront{transform: scale(0);opacity: 0;}
+
+        .item_5 .info-back{opacity: 0;background: #223e87;pointer-events: none;transform: scale(1.5);transition: all 0.4s ease-in-out 0.2s;}
+        .item_5:hover .info-back{transform: scale(1); opacity: 1; pointer-events: auto;}
+
+
+        /**/
+        .item_6{width: 220px;height: 220px;border-radius: 50%; position: relative; cursor: default;}
+        .item_6::before{content: '';display: table;}
+        .item_6 .chinfo{position: absolute;width: 100%;height: 100%;transform-style: preserve-3d;}
+        .item_6 .chinfo >div{display: block;width: 100%;height: 100%;position: absolute;border-radius: 50%;background-position: center center;transition: all 0.4s linear;transform-origin: 50% 0%;}
+        .img_6{background: url('../img/19.jpg')}
+        .item_6 .chfront{box-shadow: inset 0 0 0 16px rgba(0,0,0,0.3);}
+        .item_6 .info-back{transform: translate3d(0,0,-220px) rotate3d(1,0,0,90deg);background: #000; opacity: 0;}
+        .item_6 .info-back h3{padding-top: 50px;}
+        .item_6 .info-back p{margin: 20px 30px;}
+        .item_6:hover .info-back{	transform: rotate3d(1,0,0,0deg);	opacity: 1;}
+        .item_6:hover .chfront{	transform: translate3d(0,280px,0) rotate3d(1,0,0,-90deg);	opacity: 0;}
+
+
+        /**/
+
+        .item_7{width: 220px;height: 220px;border-radius: 50%; position: relative; cursor: default;}
+        .img_7{background-image: url(../img/16.jpg);}
+        .item_7::before{content: '';display: table;}
+        .item_7 .chinfo{top: 20px;left: 20px;background: #f9f9f9 url(../img/bg.jpg); box-shadow: 0 0 0 20px rgba(255,255,255,0.2), inset 0 0 3px rgba(115,114, 23, 0.8);}
+        .item_7 .info ,.item_7 .chinfo{position: absolute;width: 180px;height: 180px;border-radius: 50%;transition: all 0.4s ease-in-out;perspective: 800px;}
+        .item_7 .info{transform-style: preserve-3d;}
+        .item_7 .chfront{transform-origin: 50% 100%;z-index: 100;box-shadow: inset 2px 1px 4px rgba(0,0,0,0.1);}
+        .item_7 .info > div{display: block;position: absolute;width: 100%;height: 100%;border-radius: 50%;background-position: center center;transition: all 0.6s ease-in-out;}
+        .item_7:hover .chfront{transform: rotate3d(1,0,0,-180deg); box-shadow: inset 0 0 5px rgba(255,255,255,0.2), inset 0 0 3px rgba(0,0,0,0.3);} 
+        .item_7:hover .info-back{background: rgba(230,132,107,0.6);}
+        .item_7 .info-back h3{padding-top:40px;margin: 0 25px; }
+        .item_7 .info-back p{margin: 0 30px;} 
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="item_1 img_1">
+            <div class="info">
+                <h3>Use what you have</h3>
+                <p>by Angela Duncan <a href="http://drbl.in/eOPF">View on Dribbble</a></p>
+            </div>
+        </div>
+
+        <div class="item_2 img_2">
+            <div class="info">
+                <h3>Brainiac</h3>
+                <p>by Daniel Nyari <a href="http://drbl.in/eODP">View on Dribbble</a></p>
+            </div>
+        </div>
+        <div class="item_3">
+            <div class="info">
+                <h3>Music poster</h3>
+                <p>by Jonathan Quintin <a href="http://drbl.in/eGjw">View on Dribbble</a></p>
+            </div>
+            <div class="thumb img_3"></div>
+        </div>
+
+        <div class="item_4 chimg_1">
+            <div class="info">
+                <div class="chinfo">
+                    <div class="info-front chimg_1"></div>
+                    <div class="info-back">
+                        <h3>Bears Type</h3>
+                        <p>by Josh Schott <a href="http://drbl.in/ewUW">View on Dribbble</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item_5 img_5">
+            <div class="info">
+                <div class="chinfo">
+                    <div class="chfront img_5"></div>
+                    <div class="info-back">
+                        <h3>Stay Foxy</h3>
+                        <p>by Arnel Baluyot <a href="http://drbl.in/eQDg">View on Dribbble</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="item_6">
+            <div class="chinfo">
+                <div class="chfront img_6"></div>
+                    <div class="info-back">
+                        <h3>Mouse</h3>
+                        <p>by Alexander Shumihin <a href="http://drbl.in/eAoj">View on Dribbble</a></p>
+                    </div>	
+            </div>
+        </div>
+
+
+        <div class="item_7 img_7">
+            <div class="chinfo">
+                <div class="info">
+                    <div class="chfront img_7"></div>
+                    <div class="info-back">
+                        <h3>Services Image</h3>
+                        <p>by Gumball Creative <a href="http://drbl.in/eFDk">View on Dribbble</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
