@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@media</title>
+    <style>
+        *{box-sizing: border-box;}
+        body{background: #f3f3f3; }
+        @media screen and (max-width:769px){
+            body{background: #de4;}
+        }
+        @media screen and (max-width: 380px){
+            body{background: #f90;}
+        }
+        .app{width: 202px;height: 202px;border-radius: 50%;border:1px solid blueviolet;}
+        .textshadow{box-shadow:inset 0 0 0 10px #f90}
+    </style>
+</head>
+<body>
+    
+    <div class="app textshadow"></div>
+</body>
+</html>
